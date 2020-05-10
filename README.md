@@ -65,7 +65,6 @@ print(result_pay_card)
 ## Requirements
 - requests 
 - re
-- subprocess
 
 ## Author
 Blazzerrr
