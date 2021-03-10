@@ -104,7 +104,7 @@ print(r)
 - lxml
 
 ## Donate
-— QIWI: **qiwi.com/n/BLAZZERRR**</br>
+— QIWI: **[qiwi.com/n/BLAZZERRR](qiwi.com/n/BLAZZERRR)**</br>
 — BTC: **bc1qhajqf6k3lass7sq8y2p3jg6xav6hrnguacdgsz**</br>
 — ETH: **0xD2F03940ec729BfDFA79a5b7a867e8F55E470b67**</br>
 — XRP: **r3do8Bp7qfobrv5QmyBqp3PzJ2k8VQtGY8**</br>
