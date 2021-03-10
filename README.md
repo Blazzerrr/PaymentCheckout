@@ -1,6 +1,6 @@
 # Python Payment Checkout
 
-Payment verification for QIWI, Payeer and QIWI Virtual Bank Card
+Payment verification for QIWI, Payeer, YooMoney, WebMoney and QIWI Virtual Bank Card
 
 ## Installations
 ```
@@ -24,9 +24,10 @@ QIWI_PAY_TYPE = 'IN' # IN / OUT
 QIWI_PAY_SUM = '1000'
 QIWI_PAY_CURRENCY = 'RUB'
 QIWI_PAY_COMMENT = 'None'
-q = QiwiCheck.QiwiCheck(QIWI_TOKEN, QIWI_ACCOUNT, QIWI_PAY_TYPE, QIWI_PAY_SUM, QIWI_PAY_CURRENCY, QIWI_PAY_COMMENT)
-result_pay_qiwi = q.qiwi_history()
-print(result_pay_qiwi)
+
+q = QiwiCheck.Qiwi(QIWI_TOKEN, QIWI_ACCOUNT)
+r = q.result_pay(QIWI_PAY_TYPE, QIWI_PAY_SUM, QIWI_PAY_CURRENCY, QIWI_PAY_COMMENT)
+print(r)
 ```
 
 ### Payeer
@@ -39,12 +40,46 @@ PAYEER_API_ID = '999999999' # EXAMPLE
 PAYEER_API_KEY = 'B1sdboapyQSw0RAw' # EXAMPLE
 #PAYEER PAY CHECK
 PAYEER_PAY_TYPE = 'deposit' #deposit / transfer / withdrawal / sci
-PAYEER_PAY_SUM = '1000.00' 
+PAYEER_PAY_SUM = '1000' 
 PAYEER_PAY_CURRENCY = 'RUB'
 PAYEER_PAY_COMMENT = 'None'
-p = PayeerCheck.PayeerCheck(PAYEER_ID, PAYEER_API_ID, PAYEER_API_KEY, PAYEER_PAY_TYPE, PAYEER_PAY_SUM, PAYEER_PAY_CURRENCY, PAYEER_PAY_COMMENT)
-result_pay_payeer = p.history()
-print(result_pay_payeer)
+
+p = PayeerCheck.Payeer(PAYEER_ID, PAYEER_API_ID, PAYEER_API_KEY)
+r = p.result_pay(PAYEER_PAY_TYPE, PAYEER_PAY_SUM, PAYEER_PAY_CURRENCY, PAYEER_PAY_COMMENT)
+print(r)
+```
+
+### YooMoney
+```python
+from paymentcheckout import YooMoneyCheck
+
+#YOOMONEY CONFIG
+YM_TOKEN = "410000000000000.18D37246359386E662F137F0A76A1309A70DA3S9AF9DF11068287AA94A70A45E08742F034F40221AD60BDA62DB2352656F4B4587FE50054E5A23G27FCB693F2C029A47049ED3E767A9818468ED4F9350993537CBCC7DD098D96F5823C958335BA596F3ECD711A5CE54DA20B69FP7CBB230DB8E61744BC820812C0051292B7A09" # EXAMPLE
+#YOOMONEY PAY CHECK
+YM_PAY_SUM = '1000'
+YM_PAY_TYPE = 'in' 
+YM_PAY_COMMENT = 'None'
+
+y = YooMoneyCheck.YooMoney(YM_TOKEN)
+r = y.result_pay(YM_PAY_SUM, YM_PAY_TYPE, YM_PAY_COMMENT)
+print(r)
+```
+
+### WebMoney
+```python
+from paymentcheckout import WebMoneyCheck
+
+#WEBMONEY CONFIG
+WEBMONEY_WALLET = "R123456789000" # EXAMPLE
+CRT_PATH = "/home/name/crt.pem" # EXAMPLE PATH TO CRT
+KEY_PATH = "/home/name/key.pem" # EXAMPLE PATH TO KEY
+#WEBMONEY PAY CHECK
+WM_PAY_SUM = '1000'
+WM_PAY_COMMENT = 'None'
+
+w = WebMoneyCheck.WebMoney(WEBMONEY_WALLET, CRT_PATH, KEY_PATH)
+r = w.result_pay(WM_PAY_SUM, WM_PAY_COMMENT)
+print(r)
 ```
 
 ### Card QIWI
@@ -57,14 +92,24 @@ CARD_QIWI_ACCOUNT = '79990001234' # EXAMPLE
 #CARD PAY CHECK
 CARD_PAY_SUM = '1000'
 CARD_PAY_CURRENCY = 'RUB'
-c = CardCheck.CardCheck(CARD_QIWI_TOKEN, CARD_QIWI_ACCOUNT, CARD_PAY_SUM, CARD_PAY_CURRENCY)
-result_pay_card = c.card_history()
-print(result_pay_card)
+
+c = CardCheck.Card(CARD_QIWI_TOKEN, CARD_QIWI_ACCOUNT)
+r = c.result_pay(CARD_PAY_SUM, CARD_PAY_CURRENCY)
+print(r)
 ```
 
 ## Requirements
 - requests 
 - re
+- lxml
+
+## Donate
+— QIWI: **qiwi.com/n/BLAZZERRR**</br>
+— BTC: **bc1qhajqf6k3lass7sq8y2p3jg6xav6hrnguacdgsz**</br>
+— ETH: **0xD2F03940ec729BfDFA79a5b7a867e8F55E470b67**</br>
+— XRP: **r3do8Bp7qfobrv5QmyBqp3PzJ2k8VQtGY8**</br>
+— BNB: **bnb1wv357zh590hmys3z07fv56mv8uqua4cvz2p3dw**</br>
+— DOGE: **DL1vn98EWknvSsbkFeruZYk3DhSLft8QWQ**
 
 ## Author
 Blazzerrr
